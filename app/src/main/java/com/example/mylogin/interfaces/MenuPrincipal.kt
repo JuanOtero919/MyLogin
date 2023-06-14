@@ -22,6 +22,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -33,7 +34,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun PantallaDashboard(){
+fun PantallaDashboard(navController: NavController){
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
@@ -138,10 +139,4 @@ fun DrawerItem(item : destinos, selected : Boolean, onItemClick: (destinos)->Uni
 fun currentRoute(navController: NavHostController): String?{
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     return navBackStackEntry?.destination?.route
-}
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreviewDashboard() {
-        PantallaDashboard()
-
 }

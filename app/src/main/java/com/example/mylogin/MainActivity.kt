@@ -28,6 +28,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.mylogin.navigation.CoffecitoNavigation
 import com.example.mylogin.ui.theme.MyLoginTheme
 import com.example.mylogin.ui.theme.Shapes
 
@@ -41,7 +42,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Login()
+                    CoffecitoApp()
                 }
             }
         }
@@ -49,131 +50,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Login() {
-    Box(
-        modifier = Modifier.fillMaxSize()
+fun CoffecitoApp(){
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 46.dp),
+        color = MaterialTheme.colors.background
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.fondo),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
-
-
-        val passwordFocusRequester = FocusRequester()
-        val focusManager = LocalFocusManager.current
-
-
         Column(
-            Modifier
-                .navigationBarsPadding()
-                .padding(24.dp)
-                .fillMaxSize(),
-
-            verticalArrangement = Arrangement.spacedBy(16.dp, alignment = Alignment.Bottom),
+            verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Icon(
-                painter = painterResource(id = R.drawable.logo),
-                null,
-                Modifier.size(80.dp),
-                tint = Color.White
-            )
-
-            TextInput(InputType.Name,
-                keyboardActions = KeyboardActions(
-                    onNext = {
-                        passwordFocusRequester.requestFocus()
-                    }
-                )
-            )
-            TextInput(InputType.Password,
-                keyboardActions = KeyboardActions(
-                    onDone = {
-                        focusManager.clearFocus()
-                    }
-                ),
-                focusRequester = passwordFocusRequester
-            )
-
-            Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
-                Text("SIGN IN", Modifier.padding(vertical = 8.dp))
-            }
-            Divider(
-                color = Color.White.copy(alpha = 0.3f),
-                thickness = 1.dp,
-                modifier = Modifier.padding(top = 48.dp)
-            )
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("Don't have an account?", color = Color.Black)
-                TextButton(onClick = {}) {
-                    Text("SING UP")
-                }
-            }
+            CoffecitoNavigation()
         }
-    }
-}
-
-sealed class InputType(
-    val label: String,
-    val icon: ImageVector,
-    val keyboardOptions: KeyboardOptions,
-    val visualTransformation: VisualTransformation
-) {
-    object Name : InputType(
-        label = "Username",
-        icon = Icons.Default.Person,
-        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
-        visualTransformation = VisualTransformation.None
-    )
-
-    object Password : InputType(
-        label = "Password",
-        icon = Icons.Default.Lock,
-        keyboardOptions = KeyboardOptions(
-            imeAction = ImeAction.Done,
-            keyboardType = KeyboardType.Password
-        ),
-        visualTransformation = PasswordVisualTransformation()
-    )
-}
-
-@Composable
-fun TextInput(
-    inputType: InputType,
-    focusRequester: FocusRequester? = null,
-    keyboardActions: KeyboardActions
-) {
-
-    var value by remember { mutableStateOf("") }
-
-    TextField(
-        value = value,
-        onValueChange = { value = it },
-        modifier = Modifier
-            .fillMaxWidth()
-            .focusOrder(focusRequester ?: FocusRequester()),
-        leadingIcon = { Icon(imageVector = inputType.icon, null) },
-        label = { Text(text = inputType.label) },
-        shape = Shapes.small,
-        colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = Color.White,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent
-        ),
-        singleLine = true,
-        keyboardOptions = inputType.keyboardOptions,
-        visualTransformation = inputType.visualTransformation,
-        keyboardActions = keyboardActions
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MyLoginTheme {
-        Login()
     }
 }
