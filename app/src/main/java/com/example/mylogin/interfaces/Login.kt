@@ -50,6 +50,7 @@ fun Login2(
     val showLoginForm = rememberSaveable {
         mutableStateOf(true)
     }
+
     Surface(modifier = Modifier
         .fillMaxSize()
     ) {
@@ -59,6 +60,7 @@ fun Login2(
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
+
         Column (
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -76,7 +78,16 @@ fun Login2(
                 }
             }else
             {
-                navController.navigate(Coffecitoscream.Registro.name)
+                Text(text = "Crea una cuenta")
+                UserForm(
+                    isCreateAccount = true
+                )
+                { email, password ->
+                    Log.d("Mascota feliz", "Craando cuenta con $email y $password")
+                    viewModel.createUserWithEmailAndPassword(email,password){
+                        navController.navigate(Coffecitoscream.MenuPrincipal.name)
+                    }
+                }
             }
             Spacer(modifier = Modifier.height(15.dp))
             Row(
