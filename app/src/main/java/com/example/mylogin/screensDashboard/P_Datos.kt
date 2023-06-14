@@ -8,5 +8,6 @@ import androidx.compose.runtime.Composable
 fun ScreenDatos(){
     Column() {
         Text(text = "Pagina Datos")
+        Text(text = "prueba")
     }
 }
