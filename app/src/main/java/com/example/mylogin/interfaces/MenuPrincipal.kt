@@ -34,7 +34,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun PantallaDashboard(navController: NavController){
+fun PantallaDashboard(){
     val navController = rememberNavController()
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
@@ -139,4 +139,10 @@ fun DrawerItem(item : destinos, selected : Boolean, onItemClick: (destinos)->Uni
 fun currentRoute(navController: NavHostController): String?{
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     return navBackStackEntry?.destination?.route
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreviewDashboard() {
+    PantallaDashboard()
 }
