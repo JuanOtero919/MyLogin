@@ -193,6 +193,12 @@ fun PasswordInput(
         modifier = Modifier
             .padding(bottom = 10.dp, start = 10.dp, end = 10.dp)
             .fillMaxWidth(),
+        colors = TextFieldDefaults.textFieldColors(
+            backgroundColor = Color.White,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent
+        ),
         visualTransformation = visualTransformation,
         trailingIcon = {
             if(passwordState.value.isNotBlank()){
@@ -226,7 +232,9 @@ fun EmailInput(
         valueState = emailState,
         labelId = labelId,
         keyboardType= KeyboardType.Email,
+
     )
+
 }
 @Composable
 fun InputField(
@@ -243,6 +251,12 @@ fun InputField(
         modifier = Modifier
             .padding(bottom = 10.dp, start = 10.dp, end = 10.dp)
             .fillMaxWidth(),
+        colors = TextFieldDefaults.textFieldColors(
+            backgroundColor = Color.White,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent
+        ),
         keyboardOptions = KeyboardOptions(
             keyboardType = keyboardType
         )
