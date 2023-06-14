@@ -21,12 +21,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.mylogin.R
 
 
 @Composable
 fun MyCustomViewInicio(
-    onNextClick: () -> Unit
+
+   onNextClick: () -> Unit
 ) {
     val selectedTab = remember { mutableStateOf(0) }
 
@@ -145,7 +148,7 @@ fun MyCustomViewInicio(
             ) {
 
                 Button(
-                    onClick = onNextClick,
+                    onClick = {},
                     modifier = Modifier
                         .padding(top = 16.dp)
                         .height(50.dp)
@@ -164,8 +167,3 @@ fun MyCustomViewInicio(
 
 
 
-@Preview(showBackground = true)
-@Composable
-fun PreviewMyCustomViewInicio() {
-    MyCustomViewInicio {}
-}

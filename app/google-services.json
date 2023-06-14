@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "898470621640",
+    "project_id": "appcoffecito",
+    "storage_bucket": "appcoffecito.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898470621640:android:cbcbdbde8732c02c1690fd",
+        "android_client_info": {
+          "package_name": "com.example.mylogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898470621640-a64jkaufl357g6cg79emfd2rdkmn8jer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhN-DXQJcFggVYe2RD2gJrCBBpjKqjF2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898470621640-a64jkaufl357g6cg79emfd2rdkmn8jer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

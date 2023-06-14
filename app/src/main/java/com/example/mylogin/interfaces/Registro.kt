@@ -27,6 +27,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.mylogin.R
 import com.example.mylogin.recursos.FacebookLoginButton
 import com.example.mylogin.recursos.InputType
@@ -35,7 +36,7 @@ import com.example.mylogin.ui.theme.Shapes
 
 
 @Composable
-fun registro() {
+fun registro(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -119,11 +120,4 @@ fun WordText(word: String) {
         ),
         color = Color.Black
     )
-}
-
-
-@Preview()
-@Composable
-fun PreviewRegistro() {
-    registro()
 }
