@@ -1,5 +1,6 @@
 package com.example.mylogin.screensDashboard
 
+import androidx.compose.animation.expandHorizontally
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
@@ -20,7 +21,7 @@ fun ScreenDatos(){
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(15.dp))
-        Text(text = "Juan Diego Perez", color = Color.Blue)
+        Text(text = "Juan Diego Perez", color = Color.Black)
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(15.dp))
@@ -33,6 +34,5 @@ fun ScreenDatos(){
         Text(text = "profesión: Ingeniero de sistemas")
         Text(text = "Estado civil: casado")
     }
-    
 
 }
