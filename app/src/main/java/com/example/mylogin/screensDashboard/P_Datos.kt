@@ -21,7 +21,7 @@ fun ScreenDatos(){
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(15.dp))
-        Text(text = "Juan Diego Perez", color = Color.Black)
+        Text(text = "  "+"Juan Camilo Otero", color = Color.Black)
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(15.dp))
@@ -29,10 +29,13 @@ fun ScreenDatos(){
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(15.dp))
-        Text(text = "Ciudad: Popaýan")
-        Text(text = "Edad: 54 años")
-        Text(text = "profesión: Ingeniero de sistemas")
-        Text(text = "Estado civil: casado")
+        Text(text = "  "+"Ciudad: Popaýan")
+        Text(text = "  "+"Direccion: calle 73an #4b-33")
+        Text(text = "  "+"Teléfono: 3182648563")
+        Text(text = "  "+"Edad: 54 años")
+        Text(text = "  "+"profesión: Ingeniero de sistemas")
+        Text(text = "  "+"Estado civil: casado")
+
     }
 
 }

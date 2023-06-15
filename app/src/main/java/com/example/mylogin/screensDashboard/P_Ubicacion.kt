@@ -31,13 +31,12 @@ fun ScreenUbicacion(){
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(15.dp))
-        Text(text = "La mejor cafeteria de Popayán, se encuentra ubicada " +
-                "cerca a la Universidad del Cauca, justo al lado de la Facultad de Ingenieria Civil." +"" +
-                "Ven a deleitarte con todos nuestros productos")
+        Text(text = "  "+" calle 73 an 4b33, vereda Pomona ")
+
         Spacer(modifier = Modifier
             .fillMaxWidth()
             .height(15.dp))
-        Text(text = "Te esperamos...")
+        Text(text = "Llamar antes de ir...")
 
 
     }
