@@ -40,7 +40,13 @@ import androidx.navigation.NavHostController
 
 
 @Composable
-fun ViewProducto(navController: NavHostController, viewProductViewModel: ViewProductoViewModel = viewModel()) {
+fun ViewProducto(
+    navController: NavHostController,
+    viewProductViewModel: ViewProductoViewModel = viewModel(),
+    productName: String?,
+    productDescription: String?,
+    productImage: String?
+) {
     val quantity by viewProductViewModel.quantity.collectAsState()
     //val (quantity, setQuantity) = remember { mutableStateOf(1) }
     val background: Painter = painterResource(R.drawable.fondo)
@@ -64,6 +70,7 @@ fun ViewProducto(navController: NavHostController, viewProductViewModel: ViewPro
             contentAlignment = Alignment.Center
         ) {
             Column(modifier = Modifier.padding(horizontal = 40.dp)) {
+
                 Image(
                     painter = painterResource(id = R.drawable.imagenproducto),
                     contentDescription = null,
@@ -73,9 +80,9 @@ fun ViewProducto(navController: NavHostController, viewProductViewModel: ViewPro
 
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                SubtitleText("Nombre del Producto")
+                Text(text = productName!!)
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(loremIpsumText)
+                Text(text = productDescription!!)
                 Text(loremIpsumText)
                 Spacer(modifier = Modifier.height(16.dp))
                 Text("$ 4.500", fontWeight = FontWeight.Bold)

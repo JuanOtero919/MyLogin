@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.mylogin.interfaces.ResumenPedidoScreen3
 import com.example.mylogin.interfaces.ViewProducto
+import com.example.mylogin.viewmodel.ViewProductoViewModel
 
 @Composable
 fun NavigationHostPrincipal(navController: NavHostController){
@@ -36,10 +37,18 @@ fun NavigationHostPrincipal(navController: NavHostController){
         composable(destinos.Pantalla6.ruta){
             ResumenPedidoScreen3()
         }
-
+        /*
         composable(destinos.Pantalla7.ruta){
             ViewProducto(navController)
+        }*/
+
+        composable("PantallaProducto/{name}/{description}/{image}") { backStackEntry ->
+            val productName = backStackEntry.arguments?.getString("name")
+            val productDescription = backStackEntry.arguments?.getString("description")
+            val productImage = backStackEntry.arguments?.getString("image")
+            ViewProducto(navController, ViewProductoViewModel(), productName, productDescription, productImage)
         }
+
 
     }
 }

@@ -27,7 +27,10 @@ fun ScreenHome(navController: NavHostController) {
                 title = FoodProduct.Cafe.name,
                 description = FoodProduct.Cafe.description,
                 image = painterResource(FoodProduct.Cafe.image),
-                onBuyClick = { navController.navigate("PantallaProducto") }
+                onBuyClick = {
+                    navController.navigate("PantallaProducto/${FoodProduct.Cafe.name}/${FoodProduct.Cafe.description}/${FoodProduct.Cafe.image}")
+                }
+
             )
         }
         item {
@@ -35,7 +38,10 @@ fun ScreenHome(navController: NavHostController) {
                 title = FoodProduct.Pan.name,
                 description = FoodProduct.Pan.description,
                 image = painterResource(FoodProduct.Pan.image),
-                onBuyClick = { navController.navigate("PantallaProducto") }
+                onBuyClick = {
+                    navController.navigate("PantallaProducto/${FoodProduct.Cafe.name}/${FoodProduct.Cafe.description}/${FoodProduct.Cafe.image}")
+                }
+
             )
         }
         item {
@@ -43,7 +49,10 @@ fun ScreenHome(navController: NavHostController) {
                 title = FoodProduct.Pastel.name,
                 description = FoodProduct.Pastel.description,
                 image = painterResource(FoodProduct.Pastel.image),
-                onBuyClick = { navController.navigate("PantallaProducto") }
+                onBuyClick = {
+                    navController.navigate("PantallaProducto/${FoodProduct.Cafe.name}/${FoodProduct.Cafe.description}/${FoodProduct.Cafe.image}")
+                }
+
             )
         }
     }
