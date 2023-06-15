@@ -35,7 +35,7 @@ fun NavigationHostPrincipal(navController: NavHostController){
         }
 
         composable(destinos.Pantalla6.ruta){
-            ResumenPedidoScreen3()
+            ResumenPedidoScreen3(navController)
         }
         /*
         composable(destinos.Pantalla7.ruta){

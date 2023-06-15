@@ -20,14 +20,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.mylogin.R
 import com.example.mylogin.recursos.InfoText
 import com.example.mylogin.recursos.ProductText
 import com.example.mylogin.recursos.SubtitleText
+import com.example.mylogin.screensDashboard.destinos
 
 
 @Composable
-fun ResumenPedidoScreen3() {
+fun ResumenPedidoScreen3(navController: NavHostController) {
     val background: Painter = painterResource(R.drawable.fondo) // Reemplaza "fondo" con el nombre de tu archivo de imagen de fondo
 
     Box(
@@ -129,7 +131,7 @@ fun ResumenPedidoScreen3() {
 
             //val context = LocalContext.current
             Button(
-                onClick = { /* Acción al hacer clic */ },
+                onClick = { navController.navigate(destinos.Pantalla1.ruta) },
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
                     .padding(16.dp)
@@ -175,11 +177,11 @@ fun MetodoPagoSection() {
     }
 
 }
-
+/*
 @Preview
 @Composable
 fun PreviewResumenPedidoScreen3() {
     MaterialTheme {
         ResumenPedidoScreen3()
     }
-}
+}*/
