@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddShoppingCart
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -48,7 +49,7 @@ fun PantallaDashboard(){
     )
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = {TopBar(scope, scaffoldState)},
+        topBar = {TopBar(scope, scaffoldState, navController)},
         drawerContent = { Drawer(
             scope,
             scaffoldState,
@@ -57,7 +58,19 @@ fun PantallaDashboard(){
         }
     ){
         it
-        NavigationHostPrincipal(navController = navController)
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center,
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.fondo),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop,
+                alpha = 0.5f
+            )
+            NavigationHostPrincipal(navController = navController)
+        }
     }
 
 }
@@ -66,13 +79,20 @@ fun PantallaDashboard(){
 @Composable
 fun TopBar(
     scope:CoroutineScope,
-    scaffoldState: ScaffoldState
+    scaffoldState: ScaffoldState,
+    navController: NavHostController
 ){
     TopAppBar(
         title = {Text(text = "Cofficito")},
         navigationIcon = {
             IconButton(onClick = { scope.launch { scaffoldState.drawerState.open() }}) {
                 Icon(imageVector = Icons.Filled.Menu, contentDescription = null)
+            }
+        },
+        actions = {
+            IconButton(onClick = { navController.navigate(destinos.Pantalla6.ruta) }) {
+                Icon(imageVector = Icons.Filled.AddShoppingCart,
+                    contentDescription = null)
             }
         }
     )
@@ -121,7 +141,7 @@ fun DrawerItem(item : destinos, selected : Boolean, onItemClick: (destinos)->Uni
             .height(56.dp)
             .padding(6.dp)
             .clip(RoundedCornerShape(12))
-            .background( if(selected) MaterialTheme.colors.primaryVariant.copy(alpha = 0.25f) else Color.Transparent)
+            .background(if (selected) MaterialTheme.colors.primaryVariant.copy(alpha = 0.25f) else Color.Transparent)
             .padding(12.dp)
             .clickable { onItemClick(item) },
         verticalAlignment = Alignment.CenterVertically
