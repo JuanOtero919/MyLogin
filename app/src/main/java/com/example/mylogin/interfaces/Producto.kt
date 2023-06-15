@@ -36,10 +36,17 @@ import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.navigation.NavHostController
 
 
 @Composable
-fun ViewProducto( viewProductViewModel: ViewProductoViewModel = viewModel()) {
+fun ViewProducto(
+    navController: NavHostController,
+    viewProductViewModel: ViewProductoViewModel = viewModel(),
+    productName: String?,
+    productDescription: String?,
+    productImage: String?
+) {
     val quantity by viewProductViewModel.quantity.collectAsState()
     //val (quantity, setQuantity) = remember { mutableStateOf(1) }
     val background: Painter = painterResource(R.drawable.fondo)
@@ -63,6 +70,7 @@ fun ViewProducto( viewProductViewModel: ViewProductoViewModel = viewModel()) {
             contentAlignment = Alignment.Center
         ) {
             Column(modifier = Modifier.padding(horizontal = 40.dp)) {
+
                 Image(
                     painter = painterResource(id = R.drawable.imagenproducto),
                     contentDescription = null,
@@ -72,10 +80,10 @@ fun ViewProducto( viewProductViewModel: ViewProductoViewModel = viewModel()) {
 
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                SubtitleText("Nombre del Producto")
+                Text(text = productName!!)
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(loremIpsumText)
-                Text(loremIpsumText)
+                Text(text = productDescription!!)
+
                 Spacer(modifier = Modifier.height(16.dp))
                 Text("$ 4.500", fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(20.dp))
@@ -111,7 +119,7 @@ fun ViewProducto( viewProductViewModel: ViewProductoViewModel = viewModel()) {
                     Spacer(modifier = Modifier.weight(1f))
 
                     Button(
-                        onClick = { /* Acción al hacer clic en el botón Agregar */ },
+                        onClick = { navController.navigate("PantallaHome") },
                         modifier = Modifier.padding(end = 5.dp),
                         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
                         shape = RoundedCornerShape(20.dp)
@@ -125,11 +133,11 @@ fun ViewProducto( viewProductViewModel: ViewProductoViewModel = viewModel()) {
         }
     }
 }
-
+/*
 @Preview(showBackground = true)
 @Composable
 fun ViewProductoPreview() {
     val viewModel = remember { ViewProductoViewModel() }
     ViewProducto(viewProductViewModel = viewModel)
 }
-
+*/
