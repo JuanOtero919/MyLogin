@@ -19,12 +19,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.mylogin.R
 import com.example.mylogin.navigation.Coffecitoscream
+import com.example.mylogin.ui.theme.MyLoginTheme
+import com.google.firebase.annotations.concurrent.Background
 
 
 @Composable
@@ -62,13 +67,94 @@ fun MyCustomViewInicio(
             ) {
                 when (selectedTab.value) {
                     0 -> {
-                        Text("Contenido de la pestaña 1")
+                        Column(
+                            modifier = Modifier.fillMaxSize()
+                        ){
+                            Image(
+                                painter = painterResource(id = R.drawable.background2),
+                                contentDescription = "Logo de la App",
+                                modifier = Modifier
+                                    .padding(0.dp, 30.dp, 0.dp, 0.dp)
+                                    .clip(CircleShape)
+                                    .size(280.dp)
+
+                            )
+                            Text(
+                                "Bienvenido a Coffecito",
+                                fontSize = 25.sp,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(0.dp, 30.dp, 0.dp, 0.dp)
+                            )
+                        }
                     }
                     1 -> {
-                        Text("Contenido de la pestaña 2")
+                        
+                        Column() {
+                            Text(
+                                text = "La app de cafetería Cofficito es la solución perfecta para aquellos que aman" +
+                                        "disfrutar de una deliciosa taza de café sin tener que salir de casa o la oficina. Al" +
+                                        "descargar la aplicación en su dispositivo móvil, los usuarios pueden registrarse" +
+                                        "fácilmente y acceder a una amplia variedad de productos de cafetería, incluyendo" +
+                                        " cafés, tés, panes, snacks y mucho más.",
+                                modifier = Modifier.padding(10.dp)
+                            )
+                            Text(
+                                text = "Una vez que el usuario ha seleccionado los productos que desea comprar, puede" +
+                                    "proceder a realizar el pago. Los pedidos se procesan inmediatamente y se envían al" +
+                                    "equipo de la cafetería para su preparación. Una vez que el pedido está listo, se" +
+                                    "empaqueta cuidadosamente y se envía al usuario a su dirección",
+                                modifier = Modifier.padding(10.dp)
+                            )
+
+                        }
                     }
+
                     2 -> {
-                        Text("Contenido de la pestaña 3")
+                        Column {
+                            Text(
+                                "Equipo de Trabajo",
+                                fontSize = 25.sp,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(0.dp, 10.dp, 0.dp, 0.dp)
+                            )
+                            Image(
+                                painter = painterResource(id = R.drawable.equipo),
+                                contentDescription = "Imagen de equipo",
+                                modifier = Modifier
+                                    .padding(0.dp, 10.dp, 0.dp, 0.dp)
+                                    .clip(CircleShape)
+                                    .size(280.dp)
+                            )
+                            Text(
+                                "Mannuel Fernando Granoble",
+                                fontSize = 15.sp,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(0.dp, 10.dp, 0.dp, 0.dp)
+                            )
+                            Text(
+                                "Juan Jose Vasquez Canales",
+                                fontSize = 15.sp,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(0.dp, 10.dp, 0.dp, 0.dp)
+                            )
+                            Text(
+                                "Juan Camilo Otero",
+                                fontSize = 15.sp,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(0.dp, 10.dp, 0.dp, 0.dp)
+                            )
+                        }
+
                     }
                 }
             }
@@ -138,6 +224,7 @@ fun MyCustomViewInicio(
                 ) {
                     // Contenido de la pestaña 3
                 }
+
             }
             Spacer(modifier = Modifier.weight(1f))
 
@@ -166,5 +253,13 @@ fun MyCustomViewInicio(
     }
 }
 
+@Preview
+@Composable
+fun preview (){
+    val navController = rememberNavController()
+    MyLoginTheme {
+        MyCustomViewInicio(navController )
 
+    }
+}
 
