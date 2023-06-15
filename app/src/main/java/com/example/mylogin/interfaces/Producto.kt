@@ -30,11 +30,18 @@ import androidx.compose.ui.unit.dp
 import com.example.mylogin.recursos.InfoText
 import com.example.mylogin.recursos.ProductText
 import com.example.mylogin.recursos.SubtitleText
+import com.example.mylogin.viewmodel.ViewProductoViewModel
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 
 
 @Composable
-fun ViewProducto() {
-    val (quantity, setQuantity) = remember { mutableStateOf(1) }
+fun ViewProducto( viewProductViewModel: ViewProductoViewModel = viewModel()) {
+    val quantity by viewProductViewModel.quantity.collectAsState()
+    //val (quantity, setQuantity) = remember { mutableStateOf(1) }
     val background: Painter = painterResource(R.drawable.fondo)
     val loremIpsumText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     Box(modifier = Modifier.fillMaxSize()) {
@@ -82,7 +89,7 @@ fun ViewProducto() {
 
                 ) {
                     IconButton(
-                        onClick = { if (quantity > 1) setQuantity(quantity - 1) },
+                        onClick = { viewProductViewModel.decrementQuantity() },
 
                         modifier = Modifier.padding(end = 10.dp)
                     ) {
@@ -94,7 +101,7 @@ fun ViewProducto() {
                     ))
 
                     IconButton(
-                        onClick = { setQuantity(quantity + 1) },
+                        onClick = { viewProductViewModel.incrementQuantity() },
 
                         modifier = Modifier.padding(start = 10.dp)
                     ) {
@@ -118,37 +125,11 @@ fun ViewProducto() {
         }
     }
 }
-/*
+
+@Preview(showBackground = true)
 @Composable
-fun Stepper() {
-    val (quantity, setQuantity) = remember { mutableStateOf(1) }
-
-    Row(modifier = Modifier
-        .background(Color.Green)
-        .fillMaxWidth()
-    ) {
-        IconButton(
-            onClick = { if (quantity > 1) setQuantity(quantity - 1) },
-
-            //modifier = Modifier.padding(end = 8.dp)
-        ) {
-            Icon(Icons.Default.KeyboardArrowLeft, contentDescription = "Minus")
-        }
-
-        Text(text = quantity.toString())
-
-        IconButton(
-            onClick = { setQuantity(quantity + 1) },
-
-            //modifier = Modifier.padding(start = 8.dp)
-        ) {
-            Icon(Icons.Default.KeyboardArrowRight, contentDescription = "Plus")
-        }
-    }
+fun ViewProductoPreview() {
+    val viewModel = remember { ViewProductoViewModel() }
+    ViewProducto(viewProductViewModel = viewModel)
 }
-*/
-@Preview
-@Composable
-fun PreviewViewProducto() {
-    ViewProducto()
-}
+
