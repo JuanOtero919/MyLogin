@@ -57,7 +57,19 @@ fun PantallaDashboard(){
         }
     ){
         it
-        NavigationHostPrincipal(navController = navController)
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center,
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.fondo),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop,
+                alpha = 0.5f
+            )
+            NavigationHostPrincipal(navController = navController)
+        }
     }
 
 }
