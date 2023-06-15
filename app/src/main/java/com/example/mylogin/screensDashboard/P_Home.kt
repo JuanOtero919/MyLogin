@@ -11,11 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+
+import androidx.navigation.NavHostController
 import com.example.mylogin.recursos.FoodCard
 import com.example.mylogin.recursos.FoodProduct
 
 @Composable
-fun ScreenHome() {
+fun ScreenHome(navController: NavHostController) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(vertical = 16.dp)
@@ -25,7 +27,7 @@ fun ScreenHome() {
                 title = FoodProduct.Cafe.name,
                 description = FoodProduct.Cafe.description,
                 image = painterResource(FoodProduct.Cafe.image),
-                onBuyClick = { /* Acción al hacer clic en el botón Comprar */ }
+                onBuyClick = { navController.navigate("PantallaProducto") }
             )
         }
         item {
@@ -33,7 +35,7 @@ fun ScreenHome() {
                 title = FoodProduct.Pan.name,
                 description = FoodProduct.Pan.description,
                 image = painterResource(FoodProduct.Pan.image),
-                onBuyClick = { /* Acción al hacer clic en el botón Comprar */ }
+                onBuyClick = { navController.navigate("PantallaProducto") }
             )
         }
         item {
@@ -41,15 +43,15 @@ fun ScreenHome() {
                 title = FoodProduct.Pastel.name,
                 description = FoodProduct.Pastel.description,
                 image = painterResource(FoodProduct.Pastel.image),
-                onBuyClick = { /* Acción al hacer clic en el botón Comprar */ }
+                onBuyClick = { navController.navigate("PantallaProducto") }
             )
         }
     }
 }
 
-
+/*
 @Composable
 @Preview
 fun PrevHome(){
     ScreenHome()
-}
+}*/
