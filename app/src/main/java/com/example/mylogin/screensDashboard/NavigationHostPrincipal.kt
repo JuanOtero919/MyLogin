@@ -38,7 +38,7 @@ fun NavigationHostPrincipal(navController: NavHostController){
         }
 
         composable(destinos.Pantalla7.ruta){
-            ViewProducto()
+            ViewProducto(navController)
         }
 
     }
