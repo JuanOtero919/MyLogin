@@ -13,4 +13,6 @@ sealed class destinos (
     object Pantalla4: destinos(R.drawable.map, "Ubicación", "PantallaUbicacion")
     object Pantalla5: destinos(R.drawable.creditcard, "Metodos de Pago", "PantallaMetodoPago")
 
+    object Pantalla6: destinos(R.drawable.imagenproducto, "Carrito","PantallaCarrito")
+
 }

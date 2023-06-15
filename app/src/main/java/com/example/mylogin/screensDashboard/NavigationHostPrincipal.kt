@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.mylogin.interfaces.ResumenPedidoScreen3
 
 @Composable
 fun NavigationHostPrincipal(navController: NavHostController){
@@ -29,6 +30,10 @@ fun NavigationHostPrincipal(navController: NavHostController){
 
         composable(destinos.Pantalla5.ruta){
             ScreenMetodosPago()
+        }
+
+        composable(destinos.Pantalla6.ruta){
+            ResumenPedidoScreen3()
         }
 
     }
