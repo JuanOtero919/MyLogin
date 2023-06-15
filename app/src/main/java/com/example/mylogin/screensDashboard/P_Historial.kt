@@ -45,9 +45,5 @@ fun ScreenHistorial(){
     }
 }
 
-@Preview
-@Composable
-fun vistaHistorial(){
-    ScreenHistorial()
-}
+
 
