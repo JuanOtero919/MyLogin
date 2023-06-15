@@ -39,7 +39,7 @@ fun ScreenHome(navController: NavHostController) {
                 description = FoodProduct.Pan.description,
                 image = painterResource(FoodProduct.Pan.image),
                 onBuyClick = {
-                    navController.navigate("PantallaProducto/${FoodProduct.Cafe.name}/${FoodProduct.Cafe.description}/${FoodProduct.Cafe.image}")
+                    navController.navigate("PantallaProducto/${FoodProduct.Pan.name}/${FoodProduct.Pan.description}/${FoodProduct.Pan.image}")
                 }
 
             )
@@ -50,7 +50,7 @@ fun ScreenHome(navController: NavHostController) {
                 description = FoodProduct.Pastel.description,
                 image = painterResource(FoodProduct.Pastel.image),
                 onBuyClick = {
-                    navController.navigate("PantallaProducto/${FoodProduct.Cafe.name}/${FoodProduct.Cafe.description}/${FoodProduct.Cafe.image}")
+                    navController.navigate("PantallaProducto/${FoodProduct.Pastel.name}/${FoodProduct.Pastel.description}/${FoodProduct.Pastel.image}")
                 }
 
             )

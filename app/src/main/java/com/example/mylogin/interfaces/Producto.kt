@@ -83,7 +83,7 @@ fun ViewProducto(
                 Text(text = productName!!)
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(text = productDescription!!)
-                Text(loremIpsumText)
+
                 Spacer(modifier = Modifier.height(16.dp))
                 Text("$ 4.500", fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(20.dp))
