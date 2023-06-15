@@ -25,7 +25,7 @@ fun CoffecitoNavigation(){
         }
         composable( Coffecitoscream.MenuPrincipal.name)
         {
-            PantallaDashboard(navController=navController)
+            PantallaDashboard()
         }
         composable( Coffecitoscream.Registro.name)
         {
